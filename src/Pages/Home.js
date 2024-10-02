@@ -1,8 +1,9 @@
 import React from "react";
+import Navbar from "../Navigation/NavBar";
 
 function Home(){
     return <>
-    <h1>heloo</h1>
+    <Navbar/>
     <a href="./Login">Login page</a>
     </>
 }

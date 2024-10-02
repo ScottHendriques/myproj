@@ -15,7 +15,6 @@ ReactDOM.render(
     <BrowserRouter>
       <Router1/>
     </BrowserRouter>
-    
     {/* <PhoneSignin/> */}
     {/* <App/> */}
     {/* <Tempapp/>
