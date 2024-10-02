@@ -1,12 +1,16 @@
 import { useState } from "react"
-import './app.css';
+import Graph from "../Util/BarChart.js";
+import Chart from "chart.js/auto"
+import {Bar} from "react-chartjs-2"
 
-const Applicationw=()=>{
+
+const Calcu=()=>{
     const[energyUse,setEnergyuse]=useState(0);
     const[carMiles,setCarMiles]=useState(0);
     const[flightHours,setFlightHours]=useState(0);
     const[foodConsumption,setFoodConsumption]=useState("omnivore");
     const[carbonFootprint,setCarbonFootprint]=useState(null);
+    const[values,setValues]=useState([0,0,0,0]);
   
     const energyFactor=0.233/52;
     const carFactor=0.411/52;
@@ -24,17 +28,17 @@ const Applicationw=()=>{
         const carCO2=carMiles*carFactor;
         const flightCO2=flightHours*flightFactor;
         const foodCO2=foodFactor[foodConsumption];
-
+        
         const totalFootprint=energyCO2+carCO2+flightCO2+foodCO2;
         setCarbonFootprint(totalFootprint);
+        setValues([energyCO2,carCO2,flightCO2,foodCO2]);
     }
 
     return(
         <section class="h-100">
-            <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col=xl-10">
-                        <div class="card roounded-3 text-black" style={{backgroundColor:"lightgreen"}}>
+                    <div class="col-xl-10">
+                        <div class="card rounded-3 text-black" style={{backgroundColor:"lightgreen"}}>
                             <div  class="row g-0">
                                 <div class="col-lg-6">
                                     <div clas="card-body p-md-5 mx-md-4">
@@ -83,10 +87,7 @@ const Applicationw=()=>{
                                     </div>
                                 </div>
                                 <div  class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                                    <div class="text-black px-3 py-4 p-md-5 mx-md-4">
-                                        <h4  class="mb-4">We are more than just a company</h4>
-                                        <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                    </div>
+                                    <Graph values={values}/>
                                 </div>
                                 {carbonFootprint !==null &&(
                                     <div>
@@ -97,8 +98,7 @@ const Applicationw=()=>{
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     )
 }
-  export default Applicationw;
+  export default Calcu;
