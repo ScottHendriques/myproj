@@ -6,15 +6,17 @@ import Calcu from './component/CarbonFootprint.jsx';
 import PhoneSignin from './component/signing.jsx';
 import { BrowserRouter} from 'react-router-dom';
 import Router1 from './Navigation/Router';
+import Quiz from './Pages/Quiz.js';
 
 
 
 ReactDOM.render(
   <>
-    {/* <h1>Helooo0</h1> */}
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Router1/>
-    </BrowserRouter>
+    </BrowserRouter> */}
+
+    <Quiz/>
     {/* <PhoneSignin/> */}
     {/* <App/> */}
     {/* <Tempapp/>

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Options from "./Option";
+import Options from "../Questions/Option";
 
 class Question extends Component{
     render() {
@@ -15,9 +15,10 @@ class Question extends Component{
                         selectedOption={selectedOption}
                         onOptionChange={onOptionChange}
                     />
-                    <button type="submit" className="btn btn-primary mt-2">
-                        SUBMIT
-                    </button>
+                    <div className="grid">
+                        <button className="btn btn-light me-4 rounded-pill px-4 py-2 " type="submit">Previous</button>
+                        <button className="btn btn-light me-4 rounded-pill px-4 py-2 ">Next</button>
+                    </div>
                 </form>
                 
             </div>
