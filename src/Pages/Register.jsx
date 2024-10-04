@@ -28,7 +28,7 @@ function Register() {
     e.preventDefault();
     const { name, email, password } = user;
     try {
-      const res = await fetch('/register', {
+      const res = await fetch('http://localhost:8000/api/users/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -37,7 +37,9 @@ function Register() {
           name, email, password
         })
       });
+      
       const data = await res.json();
+      console.log(data);
       
       if (data.success) {
         alert('Registration successful!');
